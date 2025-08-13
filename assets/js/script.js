@@ -280,3 +280,88 @@ for (let i = 0; i < projectItems.length; i++) {
 // add click event to project modal close button
 projectModalCloseBtn.addEventListener("click", projectModalFunc);
 projectOverlay.addEventListener("click", projectModalFunc);
+
+const formSuccess = document.querySelector("[data-form-success]");
+const formError = document.querySelector("[data-form-error]");
+
+// Add event to all form input fields
+for (let i = 0; i < formInputs.length; i++) {
+  formInputs[i].addEventListener("input", function () {
+    // check form validation
+    if (form.checkValidity()) {
+      formBtn.removeAttribute("disabled");
+    } else {
+      formBtn.setAttribute("disabled", "");
+    }
+  });
+}
+
+// Handle form submission
+form.addEventListener("submit", async function(e) {
+  e.preventDefault();
+  
+  // Show loading state
+  formBtn.innerHTML = '<ion-icon name="hourglass-outline"></ion-icon><span>Sending...</span>';
+  formBtn.setAttribute("disabled", "");
+  
+  // Hide previous messages
+  formSuccess.style.display = "none";
+  formError.style.display = "none";
+  
+  try {
+    const formData = new FormData(form);
+    
+    // Replace with your actual Formspree endpoint
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+    
+    if (response.ok) {
+      // Success
+      formSuccess.style.display = "block";
+      form.reset();
+      formBtn.innerHTML = '<ion-icon name="checkmark-outline"></ion-icon><span>Sent!</span>';
+      
+      // Reset button after 3 seconds
+      setTimeout(() => {
+        formBtn.innerHTML = '<ion-icon name="paper-plane"></ion-icon><span>Send Message</span>';
+        formBtn.setAttribute("disabled", "");
+      }, 3000);
+      
+    } else {
+      throw new Error('Network response was not ok');
+    }
+    
+  } catch (error) {
+    // Error
+    formError.style.display = "block";
+    formBtn.innerHTML = '<ion-icon name="paper-plane"></ion-icon><span>Send Message</span>';
+    
+    // Re-enable button if form is valid
+    if (form.checkValidity()) {
+      formBtn.removeAttribute("disabled");
+    }
+  }
+});
+
+// add event to all nav link
+for (let i = 0; i < navigationLinks.length; i++) {
+  navigationLinks[i].addEventListener("click", function () {
+
+    for (let i = 0; i < pages.length; i++) {
+      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
+        pages[i].classList.add("active");
+        navigationLinks[i].classList.add("active");
+        window.scrollTo(0, 0);
+      } else {
+        pages[i].classList.remove("active");
+        navigationLinks[i].classList.remove("active");
+      }
+    }
+
+  });
+}
