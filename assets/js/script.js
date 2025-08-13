@@ -219,8 +219,8 @@ const projectData = {
     description: "A GitHub Action that automatically generates and maintains code.json files for open source repositories, ensuring compliance with the SHARE IT Act.",
     link: "https://github.com/DSACMS/automated-codejson-generator"
   },
-  "Index Generator Website": {
-    title: "Index Generator Website",
+  "Index Generator": {
+    title: "Index Generator",
     tech: "JavaScript, HTML, CSS",
     description: "A web application that helps federal agencies compile and maintain their code.json files for SHARE IT Act compliance.",
     link: "https://github.com/DSACMS/index-generator-website"
@@ -237,8 +237,8 @@ const projectData = {
     description: "GitHub Actions implementation of Repolinter, automatically checking repository compliance and health metrics for government software projects.",
     link: "https://github.com/DSACMS/repolinter-actions"
   },
-  "Metrics": {
-    title: "Metrics",
+  "Repo Metrics": {
+    title: "Repo Metrics",
     tech: "JavaScript, Python, GitHub APIs",
     description: "Full-stack dashboard built with JavaScript and Python to visualize repository metrics and health analytics for government software assets worth $10M+. Deployed using GitHub Pages.",
     link: "https://dsacms.github.io/metrics/"
