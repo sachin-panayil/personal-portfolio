@@ -1,0 +1,47 @@
+{
+  "bio": [
+    "Hi, I'm Sachin Panayil — a passionate <strong>Full Stack and iOS Developer</strong> dedicated to building impactful products that solve real-world problems. With a solid foundation in full stack and iOS engineering, I specialize in creating scalable, user-centric applications using technologies like TypeScript, Python, Django, and native iOS frameworks.",
+    "Currently, I work as a software engineer at the Digital Services at the Centers for Medicare & Medicaid through the U.S. Digital Corps program, where I contribute to improving open source healthcare software systems. Alongside my professional role, I'm actively expanding my skill set by diving into cloud technologies such as AWS and deepening my backend expertise with Django.",
+    "I have a strong interest in building apps that enhance everyday life, recently developing projects including a nightlife discovery app called BarWave that maps venues worldwide, and StrengthScribe, an iOS app aimed at intermediate lifters for better gym tracking and progression. I'm committed to continuous learning and growth, regularly working on improving my coding skills, exploring new technologies, and contributing to open source."
+  ],
+  "services": [
+    {
+      "icon": "./assets/images/icon-dev.svg",
+      "iconAlt": "Full Stack Development icon",
+      "title": "Full Stack Development",
+      "text": "Building scalable applications using TypeScript, Python, Django, and modern frontend frameworks."
+    },
+    {
+      "icon": "./assets/images/icon-app.svg",
+      "iconAlt": "iOS Development icon",
+      "title": "iOS Development",
+      "text": "Creating native iOS applications with Swift and SwiftUI, focusing on user experience and performance."
+    },
+    {
+      "icon": "./assets/images/icon-design.svg",
+      "iconAlt": "Cloud Technologies icon",
+      "title": "Open Source Enthusiast",
+      "text": "In various Open Source communities such as CHAOSS and the Open Source Program Office at CMS."
+    },
+    {
+      "icon": "./assets/images/icon-photo.svg",
+      "iconAlt": "Healthcare Tech icon",
+      "title": "Healthcare Technology",
+      "text": "Contributing to healthcare software systems at CMS, improving digital services for better patient outcomes."
+    }
+  ],
+  "techLogos": [
+    { "src": "./assets/images/logo-1-color.png", "alt": "JavaScript" },
+    { "src": "./assets/images/logo-2-color.png", "alt": "TypeScript" },
+    { "src": "./assets/images/logo-3-color.png", "alt": "Python" },
+    { "src": "./assets/images/logo-4-color.png", "alt": "Swift" },
+    { "src": "./assets/images/logo-5-color.png", "alt": "Django" },
+    { "src": "./assets/images/logo-6-color.png", "alt": "PostgreSQL" },
+    { "src": "./assets/images/logo-7-color.png", "alt": "Firebase" },
+    { "src": "./assets/images/logo-8-color.png", "alt": "Docker" },
+    { "src": "./assets/images/logo-9-color.png", "alt": "AWS" },
+    { "src": "./assets/images/logo-10-color.png", "alt": "Github Actions" },
+    { "src": "./assets/images/logo-11-color.png", "alt": "Git" },
+    { "src": "./assets/images/logo-12-color.png", "alt": "Jenkins" }
+  ]
+}

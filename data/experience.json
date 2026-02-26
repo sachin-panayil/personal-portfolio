@@ -1,0 +1,102 @@
+[
+  {
+    "company": "U.S. Digital Corps @ Centers for Medicare & Medicaid Services",
+    "role": "Full Stack Software Engineer",
+    "dates": "Aug 2024 - Present",
+    "logo": "./assets/images/cms-logo.png",
+    "logoAlt": "CMS Logo",
+    "description": "Selected as part of the top 3.5% of applicants for the U.S. Digital Corps program, developing critical tools and dashboards for government software operations.",
+    "bullets": [
+      "Created full stack metrics dashboard using JavaScript, Liquid, and Python, leveraging AUGUR and GitHub APIs to process repository data for $10M+ in government software assets",
+      "Led development of critical open-source CI/CD tools using TypeScript and GitHub Actions, automating repository hygiene checks across 250+ government repositories",
+      "Conducted 15+ technical interviews and drove cross-functional initiatives as project manager",
+      "Facilitated knowledge-sharing sessions and acted as liaison between partner organizations"
+    ]
+  },
+  {
+    "company": "BarWave",
+    "role": "Lead iOS Software Engineer",
+    "dates": "Aug 2023 - Present",
+    "logo": "./assets/images/barwave-logo.png",
+    "logoAlt": "BarWave Logo",
+    "description": "Leading the complete relaunch of a revolutionary nightlife discovery iOS application, implementing modern architecture and social features.",
+    "bullets": [
+      "Spearheaded app relaunch introducing SwiftUI, MVVM, and CLEAN Architecture, bringing in 3000+ new users",
+      "Engineered social features including Snapchat-style camera system using AVFoundation",
+      "Developed global feed system with Firestore, driving 15% increase in user engagement",
+      "Built real-time check-in tracker using Core Location for automatic venue check-ins after 15+ minutes"
+    ]
+  },
+  {
+    "company": "NBA",
+    "role": "iOS Software Engineer Intern",
+    "dates": "June 2023 - Aug 2023",
+    "logo": "./assets/images/nba-logo.png",
+    "logoAlt": "NBA Logo",
+    "description": "Enhanced the flagship NBA mobile application serving over 1 million users, focusing on feature development and real-time functionality.",
+    "bullets": [
+      "Implemented and resolved 20+ features and bugs using The Composable Architecture",
+      "Drove 3% increase in user satisfaction across 1 million+ user base",
+      "Helped implement Live Activities and Push Notifications for real-time game scores",
+      "Researched technology solutions for real-time score updates within the app"
+    ]
+  },
+  {
+    "company": "Office of Administrative Trials and Hearings",
+    "role": "IT Operations Clerk",
+    "dates": "Mar 2023 - May 2023",
+    "logo": "./assets/images/oath-logo.png",
+    "logoAlt": "OATH Logo",
+    "description": "Managed IT operations and data systems for New York City's Office of Administrative Trials and Hearings, focusing on process optimization and accuracy.",
+    "bullets": [
+      "Efficiently managed IT and data entry tasks with exceptional organizational skills",
+      "Developed and implemented new data entry procedures using Kofax software",
+      "Streamlined processes and reduced errors by 15% compared to previous quarter",
+      "Regularly processed over 500 data entries per day while maintaining high accuracy",
+      "Conducted regular data audits to ensure data integrity and accuracy"
+    ]
+  },
+  {
+    "company": "CodePath",
+    "role": "iOS University Teaching Assistant",
+    "dates": "Sep 2022 - Dec 2022",
+    "logo": "./assets/images/codepath-logo.png",
+    "logoAlt": "CodePath Logo",
+    "description": "Mentored students in iOS development and app creation, achieving exceptional educational outcomes and competition success.",
+    "bullets": [
+      "Mentored 200 students in iOS programming and app development",
+      "Facilitated creation of custom iPhone apps and fostered technical proficiencies",
+      "Guided student group to secure 1st place in prestigious National App Demo Contest",
+      "Monitored student progress and provided feedback to instructors on improvement areas"
+    ]
+  },
+  {
+    "company": "A+E Networks",
+    "role": "iOS Engineer Intern",
+    "dates": "Jun 2022 - Aug 2022",
+    "logo": "./assets/images/ae-logo.png",
+    "logoAlt": "AE Logo",
+    "description": "Contributed to streaming video applications across iOS and tvOS platforms, working in cross-functional teams to deliver high-quality user experiences.",
+    "bullets": [
+      "Worked cross-functionally with product, design, and QA teams",
+      "Contributed to three Streaming Video on Demand apps for iOS and tvOS with 100,000+ users",
+      "Leveraged GraphQL and Apollo to fix multiple backend bugs affecting many users",
+      "Fixed duplication bug causing shows to appear multiple times on single screen",
+      "Mastered Agile methodologies using JIRA and Git while helping with bug triaging"
+    ]
+  },
+  {
+    "company": "Junkr",
+    "role": "Full Stack Software Engineer Intern",
+    "dates": "Jun 2021 - Aug 2021",
+    "logo": "./assets/images/junkr-logo.png",
+    "logoAlt": "Junkr Logo",
+    "description": "Developed comprehensive full-stack solutions for cryptocurrency transaction projects, handling both frontend and backend development.",
+    "bullets": [
+      "Developed and integrated frontend and backend systems for crypto transaction projects",
+      "Used Ruby on Rails, Node.js, and React.js for full-stack development",
+      "Configured and deployed web applications on Heroku",
+      "Ensured high performance and reliability of deployed applications"
+    ]
+  }
+]

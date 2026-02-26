@@ -27,11 +27,125 @@
 
 <body>
 
-  <!--
-    - #MAIN
-  -->
+  <!-- ============================================================
+       TEMPLATES — cloned by renderer.js, never displayed directly
+       ============================================================ -->
 
-  <main>
+  <!-- Sidebar: contact item -->
+  <template id="contact-item-template">
+    <li class="contact-item">
+      <div class="icon-box">
+        <ion-icon></ion-icon>
+      </div>
+      <div class="contact-info">
+        <p class="contact-title"></p>
+        <p class="contact-link"></p>
+        <address></address>
+      </div>
+    </li>
+  </template>
+
+  <!-- Sidebar: social link -->
+  <template id="social-item-template">
+    <li class="social-item">
+      <a href="#" class="social-link" target="_blank">
+        <ion-icon></ion-icon>
+      </a>
+    </li>
+  </template>
+
+  <!-- About: service item -->
+  <template id="service-item-template">
+    <li class="service-item">
+      <div class="service-icon-box">
+        <img src="" alt="" width="40">
+      </div>
+      <div class="service-content-box">
+        <h4 class="h4 service-item-title"></h4>
+        <p class="service-item-text"></p>
+      </div>
+    </li>
+  </template>
+
+  <!-- About: testimonial item -->
+  <template id="testimonial-item-template">
+    <li class="testimonials-item">
+      <div class="content-card" data-testimonials-item>
+        <figure class="testimonials-avatar-box">
+          <img src="" alt="" width="60" data-testimonials-avatar>
+        </figure>
+        <h4 class="h4 testimonials-item-title" data-testimonials-title></h4>
+        <div class="testimonials-text" data-testimonials-text></div>
+      </div>
+    </li>
+  </template>
+
+  <!-- About: tech logo -->
+  <template id="tech-logo-template">
+    <li class="clients-item">
+      <img src="" alt="">
+    </li>
+  </template>
+
+  <!-- Resume: experience item -->
+  <template id="experience-item-template">
+    <li class="timeline-item content-card">
+      <div class="company-logo">
+        <img src="" alt="">
+      </div>
+      <h4 class="h4 timeline-item-title"></h4>
+      <strong id="role-text"></strong>
+      <span class="timeline-dates"></span>
+      <br>
+      <div class="timeline-text">
+        <ul class="timeline-bullets"></ul>
+      </div>
+    </li>
+  </template>
+
+  <!-- Resume: education item -->
+  <template id="education-item-template">
+    <li class="timeline-item content-card">
+      <h4 class="h4 timeline-item-title"></h4>
+      <span class="timeline-dates"></span>
+      <p class="timeline-text"></p>
+    </li>
+  </template>
+
+  <!-- Resume: skill item -->
+  <template id="skill-item-template">
+    <li class="skills-item">
+      <div class="title-wrapper">
+        <h5 class="h5"></h5>
+        <data value="0">0%</data>
+      </div>
+      <div class="skill-progress-bg">
+        <div class="skill-progress-fill" style="width: 0%;"></div>
+      </div>
+    </li>
+  </template>
+
+  <!-- Portfolio: project card -->
+  <template id="project-item-template">
+    <li class="project-item active" data-filter-item>
+      <a href="#" data-project-item>
+        <div class="project-card">
+          <div class="project-emoji"></div>
+          <div class="project-content">
+            <h3 class="project-title"></h3>
+            <p class="project-category"></p>
+          </div>
+        </div>
+      </a>
+    </li>
+  </template>
+
+
+  <!-- ============================================================
+       PAGE STRUCTURE
+       ============================================================ -->
+
+  <main style="visibility: hidden;">
 
     <!--
       - #SIDEBAR
@@ -42,18 +156,16 @@
       <div class="sidebar-info">
 
         <figure class="avatar-box">
-          <img src="./assets/images/my-avatar.png" alt="Sachin Panayil" width="80">
+          <img src="" alt="" width="80">
         </figure>
 
         <div class="info-content">
-          <h1 class="name" title="Sachin Panayil">Sachin Panayil</h1>
-
-          <p class="title">Full Stack & iOS Engineer</p>
+          <h1 class="name" title=""></h1>
+          <p class="title"></p>
         </div>
 
         <button class="info_more-btn" data-sidebar-btn>
           <span>Show Contacts</span>
-
           <ion-icon name="chevron-down"></ion-icon>
         </button>
 
@@ -64,53 +176,13 @@
         <div class="separator"></div>
 
         <ul class="contacts-list">
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="briefcase-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Current Role</p>
-
-              <p class="contact-link">Software Engineer @ <br> Medicare & Medicaid</p>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Location</p>
-
-              <address>NYC, USA</address>
-            </div>
-
-          </li>
-
+          <!-- Rendered from meta.json -->
         </ul>
 
         <div class="separator"></div>
 
         <ul class="social-list">
-
-          <li class="social-item">
-            <a href="https://www.linkedin.com/in/sachin-panayil" class="social-link" target="_blank">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://github.com/sachin-panayil" class="social-link" target="_blank">
-              <ion-icon name="logo-github"></ion-icon>
-            </a>
-          </li>
-
+          <!-- Rendered from meta.json -->
         </ul>
 
       </div>
@@ -162,17 +234,7 @@
         </header>
 
         <section class="about-text">
-          <p>
-            Hi, I'm Sachin Panayil — a passionate <strong>Full Stack and iOS Developer</strong> dedicated to building impactful products that solve real-world problems. With a solid foundation in full stack and iOS engineering, I specialize in creating scalable, user-centric applications using technologies like TypeScript, Python, Django, and native iOS frameworks.
-          </p>
-
-          <p>
-            Currently, I work as a software engineer at the Digital Services at the Centers for Medicare & Medicaid through the U.S. Digital Corps program, where I contribute to improving open source healthcare software systems. Alongside my professional role, I'm actively expanding my skill set by diving into cloud technologies such as AWS and deepening my backend expertise with Django.
-          </p>
-
-          <p>
-            I have a strong interest in building apps that enhance everyday life, recently developing projects including a nightlife discovery app called BarWave that maps venues worldwide, and StrengthScribe, an iOS app aimed at intermediate lifters for better gym tracking and progression. I'm committed to continuous learning and growth, regularly working on improving my coding skills, exploring new technologies, and contributing to open source.
-          </p>
+          <!-- Rendered from about.json -->
         </section>
 
         <!--
@@ -184,71 +246,7 @@
           <h3 class="h3 service-title">What I'm Doing</h3>
 
           <ul class="service-list">
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-dev.svg" alt="Full Stack Development icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Full Stack Development</h4>
-
-                <p class="service-item-text">
-                  Building scalable applications using TypeScript, Python, Django, and modern frontend frameworks.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-app.svg" alt="iOS Development icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">iOS Development</h4>
-
-                <p class="service-item-text">
-                  Creating native iOS applications with Swift and SwiftUI, focusing on user experience and performance.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-design.svg" alt="Cloud Technologies icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Open Source Enthusiast</h4>
-
-                <p class="service-item-text">
-                  In various Open Source communities such as CHAOSS and the Open Source Program Office at CMS.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-photo.svg" alt="Healthcare Tech icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Healthcare Technology</h4>
-
-                <p class="service-item-text">
-                  Contributing to healthcare software systems at CMS, improving digital services for better patient outcomes.
-                </p>
-              </div>
-
-            </li>
-
+            <!-- Rendered from about.json -->
           </ul>
 
         </section>
@@ -262,25 +260,7 @@
           <h3 class="h3 testimonials-title">Testimonials</h3>
 
           <ul class="testimonials-list has-scrollbar">
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-1.png" alt="CMS Colleague" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>More To Come...</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Work in progress...
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
+            <!-- Rendered from testimonials.json -->
           </ul>
 
         </section>
@@ -334,55 +314,7 @@
           <h3 class="h3 clients-title">Technologies & Tools</h3>
 
           <ul class="clients-list has-scrollbar">
-
-            <li class="clients-item">
-              <img src="./assets/images/logo-1-color.png" alt="JavaScript">
-            </li>
-
-            <li class="clients-item">
-              <img src="./assets/images/logo-2-color.png" alt="TypeScript">
-            </li>
-
-            <li class="clients-item">
-              <img src="./assets/images/logo-3-color.png" alt="Python">
-            </li>
-
-            <li class="clients-item">
-              <img src="./assets/images/logo-4-color.png" alt="Swift">
-            </li>
-
-            <li class="clients-item">
-              <img src="./assets/images/logo-5-color.png" alt="Django">
-            </li>
-
-            <li class="clients-item">
-              <img src="./assets/images/logo-6-color.png" alt="PostgreSQL">
-            </li>
-
-            <li class="clients-item">
-              <img src="./assets/images/logo-7-color.png" alt="Firebase">
-            </li>
-
-            <li class="clients-item">
-              <img src="./assets/images/logo-8-color.png" alt="Docker">
-            </li>
-
-            <li class="clients-item">
-              <img src="./assets/images/logo-9-color.png" alt="AWS">
-            </li>
-
-            <li class="clients-item">
-              <img src="./assets/images/logo-10-color.png" alt="Github Actions">
-            </li>
-
-            <li class="clients-item">
-              <img src="./assets/images/logo-11-color.png" alt="Git">
-            </li>
-
-            <li class="clients-item">
-              <img src="./assets/images/logo-12-color.png" alt="Jenkins">
-            </li>
-
+            <!-- Rendered from about.json -->
           </ul>
 
         </section>
@@ -409,182 +341,12 @@
             <h3 class="h3">Experience</h3>
           </div>
 
-          <ol class="timeline-list">
-
-            <li class="timeline-item content-card">
-
-              <div class="company-logo">
-                <img src="./assets/images/cms-logo.png" alt="CMS Logo">
-              </div>
-
-              <h4 class="h4 timeline-item-title">U.S. Digital Corps @ Centers for Medicare & Medicaid Services</h4>
-              <strong id="role-text">Full Stack Software Engineer</strong>
-              <span>Aug 2024 - Present</span>
-
-              <br>
-
-              <div class="timeline-text">
-                Selected as part of the top 3.5% of applicants for the U.S. Digital Corps program, developing critical tools and dashboards for government software operations.
-                <ul class="timeline-bullets">
-                  <li>Created full stack metrics dashboard using JavaScript, Liquid, and Python, leveraging AUGUR and GitHub APIs to process repository data for $10M+ in government software assets</li>
-                  <li>Led development of critical open-source CI/CD tools using TypeScript and GitHub Actions, automating repository hygiene checks across 250+ government repositories</li>
-                  <li>Conducted 15+ technical interviews and drove cross-functional initiatives as project manager</li>
-                  <li>Facilitated knowledge-sharing sessions and acted as liaison between partner organizations</li>
-                </ul>
-              </div>
-
-            </li>
-
-            <li class="timeline-item content-card">
-
-              <div class="company-logo">
-                <img src="./assets/images/barwave-logo.png" alt="BarWave Logo">
-              </div>
-
-              <h4 class="h4 timeline-item-title">BarWave</h4>
-              <strong id="role-text">Lead iOS Software Engineer</strong><br>              
-              <span>Aug 2023 - Present</span>
-
-              <br>
-
-              <div class="timeline-text">
-                Leading the complete relaunch of a revolutionary nightlife discovery iOS application, implementing modern architecture and social features.
-                <ul class="timeline-bullets">
-                  <li>Spearheaded app relaunch introducing SwiftUI, MVVM, and CLEAN Architecture, bringing in 3000+ new users</li>
-                  <li>Engineered social features including Snapchat-style camera system using AVFoundation</li>
-                  <li>Developed global feed system with Firestore, driving 15% increase in user engagement</li>
-                  <li>Built real-time check-in tracker using Core Location for automatic venue check-ins after 15+ minutes</li>
-                </ul>
-              </div>
-
-            </li>
-
-            <li class="timeline-item content-card">
-
-              <div class="company-logo">
-                <img src="./assets/images/nba-logo.png" alt="NBA Logo">
-              </div>
-
-              <h4 class="h4 timeline-item-title">NBA</h4>
-              <strong id="role-text">iOS Software Engineer Intern</strong>
-              <span>June 2023 - Aug 2023</span>
-
-              <br>
-
-              <div class="timeline-text">
-                Enhanced the flagship NBA mobile application serving over 1 million users, focusing on feature development and real-time functionality.
-                <ul class="timeline-bullets">
-                  <li>Implemented and resolved 20+ features and bugs using The Composable Architecture</li>
-                  <li>Drove 3% increase in user satisfaction across 1 million+ user base</li>
-                  <li>Helped implement Live Activities and Push Notifications for real-time game scores</li>
-                  <li>Researched technology solutions for real-time score updates within the app</li>
-                </ul>
-              </div>
-
-            </li>
-
-            <li class="timeline-item content-card">
-
-              <div class="company-logo">
-                <img src="./assets/images/oath-logo.png" alt="OATH Logo">
-              </div>
-
-              <h4 class="h4 timeline-item-title">Office of Administrative Trials and Hearings</h4>
-              <strong id="role-text">IT Operations Clerk</strong>
-              <span>Mar 2023 - May 2023</span>
-
-              <br>
-
-              <div class="timeline-text">
-                Managed IT operations and data systems for New York City's Office of Administrative Trials and Hearings, focusing on process optimization and accuracy.
-                <ul class="timeline-bullets">
-                  <li>Efficiently managed IT and data entry tasks with exceptional organizational skills</li>
-                  <li>Developed and implemented new data entry procedures using Kofax software</li>
-                  <li>Streamlined processes and reduced errors by 15% compared to previous quarter</li>
-                  <li>Regularly processed over 500 data entries per day while maintaining high accuracy</li>
-                  <li>Conducted regular data audits to ensure data integrity and accuracy</li>
-                </ul>
-              </div>
-
-            </li>
-
-            <li class="timeline-item content-card">
-
-              <div class="company-logo">
-                <img src="./assets/images/codepath-logo.png" alt="CodePath Logo">
-              </div>
-
-              <h4 class="h4 timeline-item-title">CodePath</h4>
-              <strong id="role-text">iOS University Teaching Assistant</strong>
-              <span>Sep 2022 - Dec 2022</span>
-
-              <br>
-
-              <div class="timeline-text">
-                Mentored students in iOS development and app creation, achieving exceptional educational outcomes and competition success.
-                <ul class="timeline-bullets">
-                  <li>Mentored 200 students in iOS programming and app development</li>
-                  <li>Facilitated creation of custom iPhone apps and fostered technical proficiencies</li>
-                  <li>Guided student group to secure 1st place in prestigious National App Demo Contest</li>
-                  <li>Monitored student progress and provided feedback to instructors on improvement areas</li>
-                </ul>
-              </div>
-
-            </li>
-
-            <li class="timeline-item content-card">
-
-              <div class="company-logo">
-                <img src="./assets/images/ae-logo.png" alt="AE Logo">
-              </div>
-
-              <h4 class="h4 timeline-item-title">A+E Networks</h4>
-              <strong id="role-text">iOS Engineer Intern</strong>
-              <span>Jun 2022 - Aug 2022</span>
-
-              <br>
-
-              <div class="timeline-text">
-                Contributed to streaming video applications across iOS and tvOS platforms, working in cross-functional teams to deliver high-quality user experiences.
-                <ul class="timeline-bullets">
-                  <li>Worked cross-functionally with product, design, and QA teams</li>
-                  <li>Contributed to three Streaming Video on Demand apps for iOS and tvOS with 100,000+ users</li>
-                  <li>Leveraged GraphQL and Apollo to fix multiple backend bugs affecting many users</li>
-                  <li>Fixed duplication bug causing shows to appear multiple times on single screen</li>
-                  <li>Mastered Agile methodologies using JIRA and Git while helping with bug triaging</li>
-                </ul>
-              </div>
-
-            </li>
-
-            <li class="timeline-item content-card">
-
-              <div class="company-logo">
-                <img src="./assets/images/junkr-logo.png" alt="Junkr Logo">
-              </div>
-
-              <h4 class="h4 timeline-item-title">Junkr</h4>
-              <strong id="role-text">Full Stack Software Engineer Intern</strong>
-              <span>Jun 2021 - Aug 2021</span>
-
-              <br>
-
-              <div class="timeline-text">
-                Developed comprehensive full-stack solutions for cryptocurrency transaction projects, handling both frontend and backend development.
-                <ul class="timeline-bullets">
-                  <li>Developed and integrated frontend and backend systems for crypto transaction projects</li>
-                  <li>Used Ruby on Rails, Node.js, and React.js for full-stack development</li>
-                  <li>Configured and deployed web applications on Heroku</li>
-                  <li>Ensured high performance and reliability of deployed applications</li>
-                </ul>
-              </div>
-
-            </li>
-
+          <ol class="timeline-list" id="experience-list">
+            <!-- Rendered from experience.json -->
           </ol>
 
         </section>
-        
+
         <section class="timeline">
 
           <div class="title-wrapper">
@@ -595,20 +357,8 @@
             <h3 class="h3">Education</h3>
           </div>
 
-          <ol class="timeline-list">
-
-            <li class="timeline-item content-card">
-
-              <h4 class="h4 timeline-item-title">Hunter College</h4>
-
-              <span>Sep 2019 - May 2023</span>
-
-              <p class="timeline-text">
-                Bachelors in Computer Science
-              </p>
-
-            </li>
-
+          <ol class="timeline-list" id="education-list">
+            <!-- Rendered from education.json -->
           </ol>
 
         </section>
@@ -618,111 +368,7 @@
           <h3 class="h3 skills-title">My skills</h3>
 
           <ul class="skills-list content-card">
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Swift & iOS Development</h5>
-                <data value="95">95%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 95%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">JavaScript & TypeScript</h5>
-                <data value="90">90%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 90%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Python</h5>
-                <data value="88">88%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 88%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">SwiftUI & UIKit</h5>
-                <data value="92">92%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 92%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">React.js & Frontend</h5>
-                <data value="85">85%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 85%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Database (PostgreSQL, Firebase, MongoDB)</h5>
-                <data value="82">82%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 82%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">GitHub Actions & CI/CD</h5>
-                <data value="85">85%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 85%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Agile & Project Management</h5>
-                <data value="88">88%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 88%;"></div>
-              </div>
-
-            </li>
-
+            <!-- Rendered from skills.json -->
           </ul>
 
         </section>
@@ -796,166 +442,7 @@
           </div>
 
           <ul class="project-list">
-
-            <!-- General Projects -->
-            <li class="project-item active" data-filter-item data-category="general">
-              <a href="#" data-project-item>
-                <div class="project-card">
-                  <div class="project-emoji">🚪</div>
-                  <div class="project-content">
-                    <h3 class="project-title">Doorway</h3>
-                    <p class="project-category">General</p>
-                  </div>
-                </div>
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="general">
-              <a href="#" data-project-item>
-                <div class="project-card">
-                  <div class="project-emoji">⚡</div>
-                  <div class="project-content">
-                    <h3 class="project-title">Notion Action Extractor</h3>
-                    <p class="project-category">General</p>
-                  </div>
-                </div>
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="general">
-              <a href="#" data-project-item>
-                <div class="project-card">
-                  <div class="project-emoji">🎮</div>
-                  <div class="project-content">
-                    <h3 class="project-title">Pokemon Simulator</h3>
-                    <p class="project-category">General</p>
-                  </div>
-                </div>
-              </a>
-            </li>
-
-            <!-- iOS Projects -->
-            <li class="project-item active" data-filter-item data-category="ios">
-              <a href="#" data-project-item>
-                <div class="project-card">
-                  <div class="project-emoji">🌊</div>
-                  <div class="project-content">
-                    <h3 class="project-title">BarWave</h3>
-                    <p class="project-category">iOS</p>
-                  </div>
-                </div>
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="ios">
-              <a href="#" data-project-item>
-                <div class="project-card">
-                  <div class="project-emoji">🥫</div>
-                  <div class="project-content">
-                    <h3 class="project-title">ShelfLife</h3>
-                    <p class="project-category">iOS</p>
-                  </div>
-                </div>
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="ios">
-              <a href="#" data-project-item>
-                <div class="project-card">
-                  <div class="project-emoji">💪</div>
-                  <div class="project-content">
-                    <h3 class="project-title">SScribe</h3>
-                    <p class="project-category">iOS</p>
-                  </div>
-                </div>
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="ios">
-              <a href="#" data-project-item>
-                <div class="project-card">
-                  <div class="project-emoji">📦</div>
-                  <div class="project-content">
-                    <h3 class="project-title">Sortly</h3>
-                    <p class="project-category">iOS</p>
-                  </div>
-                </div>
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="ios">
-              <a href="#" data-project-item>
-                <div class="project-card">
-                  <div class="project-emoji">🎬</div>
-                  <div class="project-content">
-                    <h3 class="project-title">Flix</h3>
-                    <p class="project-category">iOS</p>
-                  </div>
-                </div>
-              </a>
-            </li>
-
-            <!-- Healthcare Projects -->
-            <li class="project-item active" data-filter-item data-category="healthcare">
-              <a href="#" data-project-item>
-                <div class="project-card">
-                  <div class="project-emoji">⚙️</div>
-                  <div class="project-content">
-                    <h3 class="project-title">Code.json Generator</h3>
-                    <p class="project-category">Healthcare</p>
-                  </div>
-                </div>
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="healthcare">
-              <a href="#" data-project-item>
-                <div class="project-card">
-                  <div class="project-emoji">📋</div>
-                  <div class="project-content">
-                    <h3 class="project-title">Index Generator</h3>
-                    <p class="project-category">Healthcare</p>
-                  </div>
-                </div>
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="healthcare">
-              <a href="#" data-project-item>
-                <div class="project-card">
-                  <div class="project-emoji">🏥</div>
-                  <div class="project-content">
-                    <h3 class="project-title">National Provider Directory</h3>
-                    <p class="project-category">Healthcare</p>
-                  </div>
-                </div>
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="healthcare">
-              <a href="#" data-project-item>
-                <div class="project-card">
-                  <div class="project-emoji">🔍</div>
-                  <div class="project-content">
-                    <h3 class="project-title">Repolinter Actions</h3>
-                    <p class="project-category">Healthcare</p>
-                  </div>
-                </div>
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="healthcare">
-              <a href="#" data-project-item>
-                <div class="project-card">
-                  <div class="project-emoji">📊</div>
-                  <div class="project-content">
-                    <h3 class="project-title">Repo Metrics</h3>
-                    <p class="project-category">Healthcare</p>
-                  </div>
-                </div>
-              </a>
-            </li>
-
+            <!-- Rendered from projects.json -->
           </ul>
 
         </section>
@@ -1014,7 +501,7 @@
         <section class="mapbox" data-mapbox>
           <figure>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96708.34194156103!2d-74.03927124999999!3d40.759040700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2588f046ee661%3A0xa0b3281fcecc08c!2sManhattan%2C%20New%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sus!4v1703123456789!5m2!1sen!2sus"
+              src=""
               width="400" height="300" loading="lazy"></iframe>
           </figure>
         </section>
@@ -1023,7 +510,7 @@
 
           <h3 class="h3 form-title">Contact Form</h3>
 
-          <form action="https://formspree.io/f/mgvzqepp" method="POST" class="form" data-form>
+          <form action="" method="POST" class="form" data-form>
 
             <div class="input-wrapper">
               <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
@@ -1057,9 +544,9 @@
   </main>
 
   <!--
-    - custom js link
+    - custom js link (ES module)
   -->
-  <script src="./assets/js/script.js"></script>
+  <script type="module" src="./assets/js/main.js"></script>
 
   <!--
     - ionicon link

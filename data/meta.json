@@ -1,0 +1,29 @@
+{
+  "name": "Sachin Panayil",
+  "title": "Full Stack & iOS Engineer",
+  "avatar": "./assets/images/my-avatar.png",
+  "contacts": [
+    {
+      "icon": "briefcase-outline",
+      "label": "Current Role",
+      "value": "Software Engineer @ <br> Medicare & Medicaid",
+      "isAddress": false
+    },
+    {
+      "icon": "location-outline",
+      "label": "Location",
+      "value": "NYC, USA",
+      "isAddress": true
+    }
+  ],
+  "socials": [
+    {
+      "icon": "logo-linkedin",
+      "url": "https://www.linkedin.com/in/sachin-panayil"
+    },
+    {
+      "icon": "logo-github",
+      "url": "https://github.com/sachin-panayil"
+    }
+  ]
+}
