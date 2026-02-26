@@ -45,24 +45,6 @@
     "link": "https://github.com/sachin-panayil/ShelfLife"
   },
   {
-    "title": "SScribe",
-    "emoji": "\ud83d\udcaa",
-    "category": "ios",
-    "categoryLabel": "iOS",
-    "tech": "Swift, SwiftUI, Core Data",
-    "description": "An iOS app designed for intermediate lifters to track gym sessions and monitor progression. Features comprehensive workout logging and progress analytics. Coming soon...",
-    "link": "#"
-  },
-  {
-    "title": "Sortly",
-    "emoji": "\ud83d\udce6",
-    "category": "ios",
-    "categoryLabel": "iOS",
-    "tech": "Swift, SwiftUI, CoreML, Vision",
-    "description": "An organizational app that helps users categorize and manage their trash through ML and their camera. Coming soon...",
-    "link": "#"
-  },
-  {
     "title": "Flix",
     "emoji": "\ud83c\udfac",
     "category": "ios",

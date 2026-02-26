@@ -1,10 +1,20 @@
-[
-  { "name": "Swift & iOS Development", "percentage": 95 },
-  { "name": "JavaScript & TypeScript", "percentage": 90 },
-  { "name": "Python", "percentage": 88 },
-  { "name": "SwiftUI & UIKit", "percentage": 92 },
-  { "name": "React.js & Frontend", "percentage": 85 },
-  { "name": "Database (PostgreSQL, Firebase, MongoDB)", "percentage": 82 },
-  { "name": "GitHub Actions & CI/CD", "percentage": 85 },
-  { "name": "Agile & Project Management", "percentage": 88 }
-]
+{
+  "categories": [
+    {
+      "title": "Languages",
+      "skills": ["Swift", "TypeScript", "JavaScript", "Python"]
+    },
+    {
+      "title": "Frameworks & Libraries",
+      "skills": ["SwiftUI", "UIKit", "React.js", "Django", "Express.js"]
+    },
+    {
+      "title": "Infrastructure & Tools",
+      "skills": ["PostgreSQL", "Firebase", "MongoDB", "Docker", "AWS", "GitHub Actions", "Jenkins"]
+    },
+    {
+      "title": "Practices",
+      "skills": ["Agile/Scrum", "CI/CD", "MVVM", "CLEAN Architecture", "Test-Driven Development"]
+    }
+  ]
+}

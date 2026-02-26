@@ -15,6 +15,7 @@ export function initInteractions(projectDataMap) {
   initProjectModal(projectDataMap);
   initContactForm();
   initPageNavigation();
+  initScrollAnimations();
 }
 
 // ---------------------------------------------------------------------------
@@ -23,6 +24,42 @@ export function initInteractions(projectDataMap) {
 
 function elementToggleFunc(elem) {
   elem.classList.toggle("active");
+}
+
+/** Store the element that had focus before a modal opened */
+let previouslyFocusedElement = null;
+
+/**
+ * Trap focus inside a modal and close on Escape.
+ * Returns a cleanup function to remove the listener.
+ */
+function trapFocus(modalElement, closeCallback) {
+  function handler(e) {
+    if (e.key === "Escape") {
+      closeCallback();
+      return;
+    }
+    if (e.key !== "Tab") return;
+
+    const focusable = modalElement.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    if (!focusable.length) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
+
+  modalElement.addEventListener("keydown", handler);
+  return () => modalElement.removeEventListener("keydown", handler);
 }
 
 // ---------------------------------------------------------------------------
@@ -35,6 +72,8 @@ function initSidebarToggle() {
 
   sidebarBtn.addEventListener("click", function () {
     elementToggleFunc(sidebar);
+    const isExpanded = sidebar.classList.contains("active");
+    sidebarBtn.setAttribute("aria-expanded", String(isExpanded));
   });
 }
 
@@ -47,14 +86,32 @@ function initTestimonialsModal() {
   const modalContainer = document.querySelector("[data-modal-container]");
   const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
   const overlay = document.querySelector("[data-overlay]");
+  const modalSection = document.querySelector(".testimonials-modal");
 
   const modalImg = document.querySelector("[data-modal-img]");
   const modalTitle = document.querySelector("[data-modal-title]");
   const modalText = document.querySelector("[data-modal-text]");
 
-  function testimonialsModalFunc() {
-    modalContainer.classList.toggle("active");
-    overlay.classList.toggle("active");
+  let cleanupFocusTrap = null;
+
+  function openModal() {
+    previouslyFocusedElement = document.activeElement;
+    modalContainer.classList.add("active");
+    overlay.classList.add("active");
+    if (modalSection) {
+      modalCloseBtn.focus();
+      cleanupFocusTrap = trapFocus(modalSection, closeModal);
+    }
+  }
+
+  function closeModal() {
+    modalContainer.classList.remove("active");
+    overlay.classList.remove("active");
+    if (cleanupFocusTrap) {
+      cleanupFocusTrap();
+      cleanupFocusTrap = null;
+    }
+    if (previouslyFocusedElement) previouslyFocusedElement.focus();
   }
 
   for (let i = 0; i < testimonialsItems.length; i++) {
@@ -63,12 +120,12 @@ function initTestimonialsModal() {
       modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
       modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
       modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
-      testimonialsModalFunc();
+      openModal();
     });
   }
 
-  modalCloseBtn.addEventListener("click", testimonialsModalFunc);
-  overlay.addEventListener("click", testimonialsModalFunc);
+  modalCloseBtn.addEventListener("click", closeModal);
+  overlay.addEventListener("click", closeModal);
 }
 
 // ---------------------------------------------------------------------------
@@ -79,7 +136,7 @@ function initPortfolioFilter() {
   // Custom select (mobile dropdown)
   const select = document.querySelector("[data-select]");
   const selectItems = document.querySelectorAll("[data-select-item]");
-  const selectValue = document.querySelector("[data-selecct-value]");
+  const selectValue = document.querySelector("[data-select-value]");
   const filterBtn = document.querySelectorAll("[data-filter-btn]");
 
   select.addEventListener("click", function () {
@@ -136,15 +193,33 @@ function initProjectModal(projectDataMap) {
   const projectModalContainer = document.querySelector("[data-project-modal-container]");
   const projectModalCloseBtn = document.querySelector("[data-project-modal-close-btn]");
   const projectOverlay = document.querySelector("[data-project-overlay]");
+  const projectModalSection = document.querySelector(".project-modal");
 
   const projectModalTitle = document.querySelector("[data-project-modal-title]");
   const projectModalTech = document.querySelector("[data-project-modal-tech]");
   const projectModalText = document.querySelector("[data-project-modal-text]");
   const projectModalLink = document.querySelector("[data-project-modal-link]");
 
-  function projectModalFunc() {
-    projectModalContainer.classList.toggle("active");
-    projectOverlay.classList.toggle("active");
+  let cleanupFocusTrap = null;
+
+  function openProjectModal() {
+    previouslyFocusedElement = document.activeElement;
+    projectModalContainer.classList.add("active");
+    projectOverlay.classList.add("active");
+    if (projectModalSection) {
+      projectModalCloseBtn.focus();
+      cleanupFocusTrap = trapFocus(projectModalSection, closeProjectModal);
+    }
+  }
+
+  function closeProjectModal() {
+    projectModalContainer.classList.remove("active");
+    projectOverlay.classList.remove("active");
+    if (cleanupFocusTrap) {
+      cleanupFocusTrap();
+      cleanupFocusTrap = null;
+    }
+    if (previouslyFocusedElement) previouslyFocusedElement.focus();
   }
 
   for (let i = 0; i < projectItems.length; i++) {
@@ -167,13 +242,13 @@ function initProjectModal(projectDataMap) {
           projectModalLink.style.display = "flex";
         }
 
-        projectModalFunc();
+        openProjectModal();
       }
     });
   }
 
-  projectModalCloseBtn.addEventListener("click", projectModalFunc);
-  projectOverlay.addEventListener("click", projectModalFunc);
+  projectModalCloseBtn.addEventListener("click", closeProjectModal);
+  projectOverlay.addEventListener("click", closeProjectModal);
 }
 
 // ---------------------------------------------------------------------------
@@ -272,4 +347,35 @@ function initPageNavigation() {
       }
     });
   }
+}
+
+// ---------------------------------------------------------------------------
+// Scroll Animations
+// ---------------------------------------------------------------------------
+
+function initScrollAnimations() {
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prefersReducedMotion) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  const selectors = [
+    ".service-item",
+    ".timeline-item",
+    ".project-item",
+    ".skill-category",
+    ".clients-item"
+  ];
+
+  document.querySelectorAll(selectors.join(", ")).forEach(el => {
+    el.classList.add("animate-on-scroll");
+    observer.observe(el);
+  });
 }

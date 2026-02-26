@@ -74,7 +74,7 @@
    */
 
   /* font-family */
-  --ff-poppins: 'Poppins', sans-serif;
+  --ff-poppins: 'Space Grotesk', sans-serif;
 
   /* font-size */
   --fs-1: 24px;
@@ -152,6 +152,23 @@ input, textarea {
 }
 
 :focus { outline-color: var(--orange-yellow-crayola); }
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background: var(--orange-yellow-crayola);
+  color: var(--smoky-black);
+  padding: 10px 20px;
+  z-index: 10000;
+  font-weight: var(--fw-600);
+  font-size: var(--fs-6);
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0;
+}
 
 html { font-family: var(--ff-poppins); }
 
@@ -334,20 +351,17 @@ main {
 .avatar-box {
   background: var(--bg-gradient-onyx);
   border-radius: 20px;
-  margin: 0;               
-  position: relative;   
-  width: 180px;        
-  height: 180px;            
-  overflow: hidden;         
+  margin: 0;
+  overflow: hidden;
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
 }
 
 .avatar-box > img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -48%); 
-  width: 80px;            
-  height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
@@ -781,6 +795,51 @@ main {
 
 .article-title { margin-bottom: 30px; }
 
+.resume-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.resume-download-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--border-gradient-onyx);
+  color: var(--orange-yellow-crayola);
+  padding: 10px 18px;
+  border-radius: 14px;
+  font-size: var(--fs-7);
+  font-weight: var(--fw-500);
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+  transition: var(--transition-1);
+  white-space: nowrap;
+}
+
+.resume-download-btn::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: var(--bg-gradient-jet);
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.resume-download-btn:hover {
+  background: var(--bg-gradient-yellow-1);
+  color: var(--smoky-black);
+}
+
+.resume-download-btn:hover::before {
+  background: var(--bg-gradient-yellow-1);
+}
+
+.resume-download-btn ion-icon {
+  font-size: 16px;
+}
+
 
 /**
  * education and experience 
@@ -842,18 +901,14 @@ main {
   color: var(--light-gray);
   font-weight: var(--fw-300);
   line-height: 1.6;
+  margin-top: 8px;
 }
 
-#role-text {
+.role-text {
   color: white;
   font-weight: bolder;
   line-height: 1.3;
   margin-bottom: 7px;
-}
-
-.timeline-text br + • {
-  display: block;
-  margin-top: 8px;
 }
 
 .timeline-bullets {
@@ -915,33 +970,46 @@ main {
 
 .skills-list { padding: 20px; }
 
+.skill-category { margin-bottom: 20px; }
 
-.skills-item:not(:last-child) { margin-bottom: 15px; }
+.skill-category:last-child { margin-bottom: 0; }
 
-.skill .title-wrapper {
+.skill-category-title {
+  color: var(--white-2);
+  margin-bottom: 12px;
+  font-size: var(--fs-5);
+}
+
+.skill-tags {
   display: flex;
-  align-items: center;
-  gap: 5px;
-  margin-bottom: 8px;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
 }
 
-.skill .title-wrapper data {
+.skill-tag {
+  background: var(--border-gradient-onyx);
   color: var(--light-gray);
+  padding: 6px 14px;
+  border-radius: 8px;
   font-size: var(--fs-7);
-  font-weight: var(--fw-300);
+  position: relative;
+  z-index: 1;
+  transition: var(--transition-1);
 }
 
-.skill-progress-bg {
-  background: var(--jet);
-  width: 100%;
-  height: 8px;
-  border-radius: 10px;
-}
-
-.skill-progress-fill {
-  background: var(--text-gradient-yellow);
-  height: 100%;
+.skill-tag::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: var(--bg-gradient-jet);
   border-radius: inherit;
+  z-index: -1;
+}
+
+.skill-tag:hover {
+  color: var(--orange-yellow-crayola);
 }
 
 
@@ -1395,6 +1463,15 @@ main {
   margin-bottom: 25px;
 }
 
+.form-group { width: 100%; }
+
+.form-label {
+  display: block;
+  color: var(--light-gray-70);
+  font-size: var(--fs-7);
+  margin-bottom: 6px;
+}
+
 .form-input {
   color: var(--white-2);
   font-size: var(--fs-6);
@@ -1403,6 +1480,8 @@ main {
   border: 1px solid var(--jet);
   border-radius: 14px;
   outline: none;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .form-input::placeholder { font-weight: var(--fw-500); }
@@ -1605,9 +1684,11 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .sidebar-info { gap: 25px; }
 
-  .avatar-box { border-radius: 30px; }
-
-  .avatar-box img { width: 120px; }
+  .avatar-box {
+    border-radius: 30px;
+    width: 120px;
+    height: 120px;
+  }
 
   .info-content .name { margin-bottom: 15px; }
 
@@ -1766,7 +1847,7 @@ textarea.form-input::-webkit-resizer { display: none; }
     left: -43px;
   }
 
-  .skills-item:not(:last-child) { margin-bottom: 25px; }
+  .skill-tags { gap: 10px; }
 
 
 
@@ -2103,7 +2184,10 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .sidebar-info { flex-direction: column; }
 
-  .avatar-box img { width: 150px; }
+  .avatar-box {
+    width: 150px;
+    height: 150px;
+  }
 
   .info-content .name {
     white-space: nowrap;
@@ -2147,4 +2231,71 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .timeline-text { max-width: 700px; }
 
+}
+
+
+
+/*-----------------------------------*\
+  #LOADING SCREEN
+\*-----------------------------------*/
+
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--smoky-black);
+  z-index: 9999;
+  transition: opacity 0.3s ease;
+}
+
+.loading-screen.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--jet);
+  border-top-color: var(--orange-yellow-crayola);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+
+
+/*-----------------------------------*\
+  #SCROLL ANIMATIONS
+\*-----------------------------------*/
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -121,7 +121,7 @@ function renderExperience(experience) {
     clone.querySelector('.company-logo img').src = entry.logo;
     clone.querySelector('.company-logo img').alt = entry.logoAlt;
     clone.querySelector('.timeline-item-title').textContent = entry.company;
-    clone.querySelector('#role-text').textContent = entry.role;
+    clone.querySelector('.role-text').textContent = entry.role;
     clone.querySelector('.timeline-dates').textContent = entry.dates;
 
     // Description text + bullet list
@@ -159,15 +159,20 @@ function renderEducation(education) {
 // ---------------------------------------------------------------------------
 
 function renderSkills(skills) {
-  const skillsList = document.querySelector('.skills-list');
-  skills.forEach(skill => {
-    const clone = cloneTemplate('skill-item-template');
-    clone.querySelector('.h5').textContent = skill.name;
-    const dataEl = clone.querySelector('data');
-    dataEl.value = skill.percentage;
-    dataEl.textContent = skill.percentage + '%';
-    clone.querySelector('.skill-progress-fill').style.width = skill.percentage + '%';
-    skillsList.appendChild(clone);
+  const container = document.querySelector('#skills-container');
+  skills.categories.forEach(category => {
+    const clone = cloneTemplate('skill-category-template');
+    clone.querySelector('.skill-category-title').textContent = category.title;
+
+    const tagsList = clone.querySelector('.skill-tags');
+    category.skills.forEach(skill => {
+      const li = document.createElement('li');
+      li.className = 'skill-tag';
+      li.textContent = skill;
+      tagsList.appendChild(li);
+    });
+
+    container.appendChild(clone);
   });
 }
 
@@ -207,6 +212,18 @@ function renderProjects(projects) {
 // ---------------------------------------------------------------------------
 
 function renderTestimonials(testimonials) {
+  const section = document.querySelector('.testimonials');
+  const modalContainer = document.querySelector('[data-modal-container]');
+
+  // Hide if no real testimonials yet
+  const isPlaceholder = !testimonials.length ||
+    testimonials.every(t => t.name === 'More To Come...');
+  if (isPlaceholder) {
+    section.style.display = 'none';
+    modalContainer.style.display = 'none';
+    return;
+  }
+
   const testimonialsList = document.querySelector('.testimonials-list');
   testimonials.forEach(testimonial => {
     const clone = cloneTemplate('testimonial-item-template');

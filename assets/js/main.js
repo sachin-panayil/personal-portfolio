@@ -15,7 +15,8 @@ async function init() {
     // 2. Render all sections from templates + data
     renderAll(data);
 
-    // 3. Show the page (was hidden to prevent flash of empty content)
+    // 3. Hide loading screen and show the page
+    document.getElementById('loading-screen').classList.add('hidden');
     document.querySelector('main').style.visibility = 'visible';
 
     // 4. Initialize all interactive behavior (event listeners)
@@ -24,6 +25,7 @@ async function init() {
   } catch (error) {
     console.error('Failed to initialize portfolio:', error);
     // Show the page even on error so it's not permanently blank
+    document.getElementById('loading-screen').classList.add('hidden');
     document.querySelector('main').style.visibility = 'visible';
   }
 }

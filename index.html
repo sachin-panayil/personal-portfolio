@@ -5,7 +5,35 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sachin Panayil - Personal Portfolio</title>
+  <title>Sachin Panayil - Full Stack & iOS Engineer</title>
+  <meta name="description" content="Sachin Panayil — Full Stack & iOS Engineer building scalable healthcare software at CMS and native iOS apps. Based in NYC.">
+  <meta name="author" content="Sachin Panayil">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sachin Panayil — Full Stack & iOS Engineer">
+  <meta property="og:description" content="Portfolio of Sachin Panayil — software engineer building healthcare tech at CMS and iOS apps like BarWave.">
+  <meta property="og:image" content="./assets/images/my-avatar.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Sachin Panayil — Full Stack & iOS Engineer">
+  <meta name="twitter:description" content="Portfolio of Sachin Panayil — software engineer building healthcare tech at CMS and iOS apps.">
+  <meta name="twitter:image" content="./assets/images/my-avatar.png">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Sachin Panayil",
+    "jobTitle": "Full Stack & iOS Engineer",
+    "sameAs": [
+      "https://www.linkedin.com/in/sachin-panayil",
+      "https://github.com/sachin-panayil"
+    ]
+  }
+  </script>
 
   <!--
     - favicon
@@ -22,10 +50,16 @@
   -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div id="loading-screen" class="loading-screen">
+    <div class="spinner"></div>
+  </div>
 
   <!-- ============================================================
        TEMPLATES — cloned by renderer.js, never displayed directly
@@ -58,7 +92,7 @@
   <template id="service-item-template">
     <li class="service-item">
       <div class="service-icon-box">
-        <img src="" alt="" width="40">
+        <img src="" alt="" width="40" loading="lazy">
       </div>
       <div class="service-content-box">
         <h4 class="h4 service-item-title"></h4>
@@ -72,7 +106,7 @@
     <li class="testimonials-item">
       <div class="content-card" data-testimonials-item>
         <figure class="testimonials-avatar-box">
-          <img src="" alt="" width="60" data-testimonials-avatar>
+          <img src="" alt="" width="60" loading="lazy" data-testimonials-avatar>
         </figure>
         <h4 class="h4 testimonials-item-title" data-testimonials-title></h4>
         <div class="testimonials-text" data-testimonials-text></div>
@@ -83,7 +117,7 @@
   <!-- About: tech logo -->
   <template id="tech-logo-template">
     <li class="clients-item">
-      <img src="" alt="">
+      <img src="" alt="" loading="lazy">
     </li>
   </template>
 
@@ -91,12 +125,11 @@
   <template id="experience-item-template">
     <li class="timeline-item content-card">
       <div class="company-logo">
-        <img src="" alt="">
+        <img src="" alt="" loading="lazy">
       </div>
       <h4 class="h4 timeline-item-title"></h4>
-      <strong id="role-text"></strong>
+      <strong class="role-text"></strong>
       <span class="timeline-dates"></span>
-      <br>
       <div class="timeline-text">
         <ul class="timeline-bullets"></ul>
       </div>
@@ -112,17 +145,12 @@
     </li>
   </template>
 
-  <!-- Resume: skill item -->
-  <template id="skill-item-template">
-    <li class="skills-item">
-      <div class="title-wrapper">
-        <h5 class="h5"></h5>
-        <data value="0">0%</data>
-      </div>
-      <div class="skill-progress-bg">
-        <div class="skill-progress-fill" style="width: 0%;"></div>
-      </div>
-    </li>
+  <!-- Resume: skill category -->
+  <template id="skill-category-template">
+    <div class="skill-category">
+      <h4 class="h4 skill-category-title"></h4>
+      <ul class="skill-tags"></ul>
+    </div>
   </template>
 
   <!-- Portfolio: project card -->
@@ -156,7 +184,7 @@
       <div class="sidebar-info">
 
         <figure class="avatar-box">
-          <img src="" alt="" width="80">
+          <img src="" alt="">
         </figure>
 
         <div class="info-content">
@@ -164,14 +192,14 @@
           <p class="title"></p>
         </div>
 
-        <button class="info_more-btn" data-sidebar-btn>
+        <button class="info_more-btn" data-sidebar-btn aria-expanded="false" aria-controls="sidebar-more">
           <span>Show Contacts</span>
           <ion-icon name="chevron-down"></ion-icon>
         </button>
 
       </div>
 
-      <div class="sidebar-info_more">
+      <div class="sidebar-info_more" id="sidebar-more">
 
         <div class="separator"></div>
 
@@ -193,7 +221,7 @@
       - #main-content
     -->
 
-    <div class="main-content">
+    <div class="main-content" id="main-content">
 
       <!--
         - #NAVBAR
@@ -273,7 +301,7 @@
 
           <div class="overlay" data-overlay></div>
 
-          <section class="testimonials-modal">
+          <section class="testimonials-modal" role="dialog" aria-modal="true" aria-labelledby="testimonial-modal-title">
 
             <button class="modal-close-btn" data-modal-close-btn>
               <ion-icon name="close-outline"></ion-icon>
@@ -289,7 +317,7 @@
 
             <div class="modal-content">
 
-              <h4 class="h3 modal-title" data-modal-title>CMS Team Lead</h4>
+              <h4 class="h3 modal-title" id="testimonial-modal-title" data-modal-title>CMS Team Lead</h4>
 
               <time datetime="2024-01-15">15 January, 2024</time>
 
@@ -327,8 +355,12 @@
 
       <article class="resume" data-page="resume">
 
-        <header>
+        <header class="resume-header">
           <h2 class="h2 article-title">Resume</h2>
+          <a href="./assets/Sachin_Panayil_Resume.pdf" download class="resume-download-btn">
+            <ion-icon name="download-outline"></ion-icon>
+            <span>Download PDF</span>
+          </a>
         </header>
 
         <section class="timeline">
@@ -367,9 +399,9 @@
 
           <h3 class="h3 skills-title">My skills</h3>
 
-          <ul class="skills-list content-card">
+          <div class="skills-list content-card" id="skills-container">
             <!-- Rendered from skills.json -->
-          </ul>
+          </div>
 
         </section>
 
@@ -411,7 +443,7 @@
 
             <button class="filter-select" data-select>
 
-              <div class="select-value" data-selecct-value>Select category</div>
+              <div class="select-value" data-select-value>Select category</div>
 
               <div class="select-icon">
                 <ion-icon name="chevron-down"></ion-icon>
@@ -455,7 +487,7 @@
 
           <div class="overlay" data-project-overlay></div>
 
-          <section class="project-modal">
+          <section class="project-modal" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
 
             <button class="modal-close-btn" data-project-modal-close-btn>
               <ion-icon name="close-outline"></ion-icon>
@@ -463,7 +495,7 @@
 
             <div class="modal-content">
 
-              <h4 class="h3 modal-title" data-project-modal-title>Project Title</h4>
+              <h4 class="h3 modal-title" id="project-modal-title" data-project-modal-title>Project Title</h4>
 
               <div class="project-meta">
                 <span class="project-tech" data-project-modal-tech>Technologies</span>
@@ -513,12 +545,21 @@
           <form action="" method="POST" class="form" data-form>
 
             <div class="input-wrapper">
-              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+              <div class="form-group">
+                <label for="fullname" class="form-label">Full name</label>
+                <input type="text" id="fullname" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+              </div>
 
-              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+              <div class="form-group">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" id="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+              </div>
             </div>
 
-            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+            <div class="form-group">
+              <label for="message" class="form-label">Your Message</label>
+              <textarea id="message" name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+            </div>
 
             <button class="form-btn" type="submit" disabled data-form-btn>
               <ion-icon name="paper-plane"></ion-icon>
