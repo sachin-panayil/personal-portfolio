@@ -1,0 +1,119 @@
+[
+  {
+    "title": "Doorway",
+    "emoji": "\ud83d\udeaa",
+    "category": "general",
+    "categoryLabel": "General",
+    "tech": "HTML, Javascript, Github Actions",
+    "description": "A zero-cost help desk solution that transforms GitHub Discussions and Wiki into a professional support portal for open source organizations.",
+    "link": "https://github.com/sachin-panayil/Doorway"
+  },
+  {
+    "title": "Notion Action Extractor",
+    "emoji": "\u26a1",
+    "category": "general",
+    "categoryLabel": "General",
+    "tech": "Python, Notion API, Github Actions",
+    "description": "Automatically extract action items from Notion kanban cards and manage them in a centralized Master Action Items database with completion tracking.",
+    "link": "https://github.com/sachin-panayil/notion-action-extractor"
+  },
+  {
+    "title": "Pokemon Simulator",
+    "emoji": "\ud83c\udfae",
+    "category": "general",
+    "categoryLabel": "General",
+    "tech": "Express.js, Javascript, Pokemon API",
+    "description": "Users can create a team of pokemon with the use of the Pokedex API and look up pokemon through their id.",
+    "link": "https://github.com/sachin-panayil/Pokemon-Simulator"
+  },
+  {
+    "title": "BarWave",
+    "emoji": "\ud83c\udf0a",
+    "category": "ios",
+    "categoryLabel": "iOS",
+    "tech": "Swift, SwiftUI, Firebase, Core Location",
+    "description": "BarWave is a revolutionary iOS app that connects nightlife enthusiasts with trending bars worldwide while enabling real-time social interaction between users. Features include automatic check-ins, global feed system, and Snapchat-style camera integration.",
+    "link": "https://www.barwave.app"
+  },
+  {
+    "title": "ShelfLife",
+    "emoji": "\ud83e\udd6b",
+    "category": "ios",
+    "categoryLabel": "iOS",
+    "tech": "UIKit, Core Data, Recipe APIs",
+    "description": "UIKit and CoreData powered app that allows users to track their food expiration dates, promoting efficient food management and reducing waste while supplying recipes based on tracked foods.",
+    "link": "https://github.com/sachin-panayil/ShelfLife"
+  },
+  {
+    "title": "SScribe",
+    "emoji": "\ud83d\udcaa",
+    "category": "ios",
+    "categoryLabel": "iOS",
+    "tech": "Swift, SwiftUI, Core Data",
+    "description": "An iOS app designed for intermediate lifters to track gym sessions and monitor progression. Features comprehensive workout logging and progress analytics. Coming soon...",
+    "link": "#"
+  },
+  {
+    "title": "Sortly",
+    "emoji": "\ud83d\udce6",
+    "category": "ios",
+    "categoryLabel": "iOS",
+    "tech": "Swift, SwiftUI, CoreML, Vision",
+    "description": "An organizational app that helps users categorize and manage their trash through ML and their camera. Coming soon...",
+    "link": "#"
+  },
+  {
+    "title": "Flix",
+    "emoji": "\ud83c\udfac",
+    "category": "ios",
+    "categoryLabel": "iOS",
+    "tech": "Swift, UIKit, Movie Database API",
+    "description": "A movie discovery app that allows users to browse current movies and view detailed information",
+    "link": "https://github.com/sachin-panayil/Flix"
+  },
+  {
+    "title": "Code.json Generator",
+    "emoji": "\u2699\ufe0f",
+    "category": "healthcare",
+    "categoryLabel": "Healthcare",
+    "tech": "TypeScript, GitHub Actions",
+    "description": "A GitHub Action that automatically generates and maintains code.json files for open source repositories, ensuring compliance with the SHARE IT Act.",
+    "link": "https://github.com/DSACMS/automated-codejson-generator"
+  },
+  {
+    "title": "Index Generator",
+    "emoji": "\ud83d\udccb",
+    "category": "healthcare",
+    "categoryLabel": "Healthcare",
+    "tech": "JavaScript, HTML, CSS",
+    "description": "A web application that helps federal agencies compile and maintain their code.json files for SHARE IT Act compliance.",
+    "link": "https://github.com/DSACMS/index-generator-website"
+  },
+  {
+    "title": "National Provider Directory",
+    "emoji": "\ud83c\udfe5",
+    "category": "healthcare",
+    "categoryLabel": "Healthcare",
+    "tech": "Python, Django, PostgreSQL",
+    "description": "A comprehensive directory system for healthcare providers, enabling efficient search and management of provider information across the national healthcare network.",
+    "link": "https://github.com/DSACMS/npd"
+  },
+  {
+    "title": "Repolinter Actions",
+    "emoji": "\ud83d\udd0d",
+    "category": "healthcare",
+    "categoryLabel": "Healthcare",
+    "tech": "TypeScript, GitHub Actions, Node.js",
+    "description": "GitHub Actions implementation of Repolinter, automatically checking repository compliance and health metrics for government software projects.",
+    "link": "https://github.com/DSACMS/repolinter-actions"
+  },
+  {
+    "title": "Repo Metrics",
+    "emoji": "\ud83d\udcca",
+    "category": "healthcare",
+    "categoryLabel": "Healthcare",
+    "tech": "JavaScript, Python, GitHub APIs",
+    "description": "Full-stack dashboard built with JavaScript and Python to visualize repository metrics and health analytics for government software assets worth $10M+. Deployed using GitHub Pages.",
+    "link": "https://dsacms.github.io/metrics/"
+  }
+]
